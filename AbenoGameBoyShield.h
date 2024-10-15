@@ -2,6 +2,7 @@
 #define __ABENO_GAME_BOY_SHIELD_H__
 #include <U8g2lib.h>
 #include <Adafruit_NeoPixel.h>
+#include <RCSwitch.h>
 
 #define AGBS_BUTTON_1_PIN 4
 #define AGBS_BUTTON_2_PIN 5
@@ -14,6 +15,7 @@
 #define AGBS_BUTTON_CENTER_PIN 3
 #define AGBS_RGB_PIN 9
 #define AGBS_BUZZER_PIN 11
+#define AGBS_RCSWITCH_PIN 12
 
 namespace AbenoGameBoyShield
 {
@@ -52,6 +54,10 @@ namespace AbenoGameBoyShield
 
         Adafruit_NeoPixel *rgb;
         void setCustomRgb(Adafruit_NeoPixel *rgb);
+
+        RCSwitch *rcSwitch;
+        void setCustomRCSwitch(RCSwitch *rcSwitch);
+        void enableRCSwitch(int rcSwitchPin);
 
     private:
         void _initButtons();

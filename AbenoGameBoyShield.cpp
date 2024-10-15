@@ -7,7 +7,7 @@ namespace AbenoGameBoyShield
     {
         oled = new U8G2_SSD1306_128X64_NONAME_F_HW_I2C(U8G2_R0);
         rgb = new Adafruit_NeoPixel(2, AGBS_RGB_PIN, NEO_GRB + NEO_KHZ800);
-
+        rcSwitch = RCSwitch();
         _initButtons();
     }
 
@@ -95,5 +95,18 @@ namespace AbenoGameBoyShield
     void Shield::setCustomRgb(Adafruit_NeoPixel *customRgb)
     {
         rgb = customRgb;
+    }
+
+    void Shield::setCustomRCSwitch(RCSwitch *customRCSwitch)
+    {
+        rcSwitch = customRCSwitch;
+    }
+
+    void Shield::enableRCSwitch(int rcSwitchPin = AGBS_RCSWITCH_PIN)
+    {
+        if (rcSwitch != nullptr)
+        {
+            rcSwitch->enableTransmit(rcSwitchPin);
+        }
     }
 }
