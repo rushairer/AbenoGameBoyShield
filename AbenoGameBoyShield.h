@@ -57,7 +57,7 @@ namespace AbenoGameBoyShield
 
         RCSwitch *rcSwitch;
         void setCustomRCSwitch(RCSwitch *rcSwitch);
-        void enableRCSwitch(int rcSwitchPin);
+        void enableRCSwitch(int rcSwitchPin = AGBS_RCSWITCH_PIN);
 
     private:
         void _initButtons();
