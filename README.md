@@ -40,13 +40,25 @@ void loop()
 
 void checkButtonStates()
 {
+    // 检查按钮状态，根据用户输入做出改变
+    // 例如:
+    //     if (shield.isButtonPressed(Button1))
+    //     {
+    //         playerAction = ACTION_ROCK;
+    //         gameState = GAME_STATE_COMPARE;
+    //     }
+
 }
 
 void drawPage()
 {
+    // 根据游戏状态，画出每一帧的画面
+    // !! 千万不要使用delay的方式延长画面持续时间
 }
 
 void useEffect()
 {
+    // 游戏状态改变后，产生的副作用
 }
+
 ```
