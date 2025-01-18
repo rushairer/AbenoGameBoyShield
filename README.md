@@ -1,6 +1,6 @@
 # AbenoGameBoyShield
 
-[Abeno GameBoy Shield](https://oshwhub.com/rushairer/arduinogameboyshield) 驱动库。
+[Abeno GameBoy Shield](https://oshwhub.com/rushairer/coloreasyduino-based-game-machin) 驱动库。
 
 ## 示例
 
