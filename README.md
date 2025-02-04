@@ -2,6 +2,41 @@
 
 [Abeno GameBoy Shield](https://oshwhub.com/rushairer/arduinogameboyshield) 驱动库。
 
+## 架构
+
+```mermaid
+classDiagram
+    class Shield {
+        +U8G2* oled
+        +Adafruit_NeoPixel* rgb
+        +RCSwitch* rcSwitch
+        +uint8_t buttons[9]
+        +bool buttonStates[9]
+        +setup()
+        +loop(checkButtonStates, drawPage, useEffect)
+        +isButtonPressed(Button)
+        +setCustomRgb()
+        +setCustomRCSwitch()
+        +enableRCSwitch()
+    }
+
+    class GameApplication {
+        +setup()
+        +loop()
+        +checkButtonStates()
+        +drawPage()
+        +useEffect()
+    }
+
+    Shield "1" *-- "1" U8G2
+    Shield "1" *-- "1" Adafruit_NeoPixel
+    Shield "1" *-- "1" RCSwitch
+    GameApplication "1" *-- "1" Shield
+
+    note for Shield "硬件控制层:负责管理所有硬件组件"
+    note for GameApplication "应用层:实现具体的游戏逻辑"
+```
+
 ## 示例
 
 examples/Game.ino 是一个基于本库开发的石头剪刀布游戏。
@@ -60,5 +95,4 @@ void useEffect()
 {
     // 游戏状态改变后，产生的副作用
 }
-
 ```
